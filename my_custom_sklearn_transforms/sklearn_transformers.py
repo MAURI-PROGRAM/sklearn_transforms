@@ -31,6 +31,6 @@ class NormalizeData(BaseEstimator, TransformerMixin):
         min_max_scaler = preprocessing.MinMaxScaler()
         x_scaled = min_max_scaler.fit_transform(data_temp)
         df_temp = pd.DataFrame(x_scaled, columns=self.columns, index = data.index)
-        data[column_names_to_normalize] = df_temp
+        data[self.columns] = df_temp
         # Devolvemos un nuevo dataframe de datos con la data normalizada
         return data
